@@ -1,4 +1,4 @@
-module github.com/cyambao/hackernews
+module github.com/christinenyries/hackernews
 
 go 1.19
 
