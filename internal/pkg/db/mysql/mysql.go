@@ -2,11 +2,12 @@ package database
 
 import (
 	"database/sql"
+	"log"
+
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/golang-migrate/migrate"
 	"github.com/golang-migrate/migrate/database/mysql"
 	_ "github.com/golang-migrate/migrate/source/file"
-	"log"
 )
 
 var Db *sql.DB
@@ -24,11 +25,11 @@ func InitDB() {
 }
 
 func CloseDb() error {
-	return Db.close()
+	return Db.Close()
 }
 
 func Migrate() {
-	if err := Db.ping(); err != nill {
+	if err := Db.Ping(); err != nil {
 		log.Fatal(err)
 	}
 
@@ -42,4 +43,3 @@ func Migrate() {
 		log.Fatal(err)
 	}
 }
-

@@ -6,9 +6,11 @@ package graph
 import (
 	"context"
 	"fmt"
+	"strconv"
 
 	"github.com/christinenyries/hackernews/graph/generated"
 	"github.com/christinenyries/hackernews/graph/model"
+	"github.com/christinenyries/hackernews/internal/links"
 )
 
 // CreateLink is the resolver for the createLink field.
@@ -19,7 +21,6 @@ func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) 
 	linkID := link.Save()
 	return &model.Link{ID: strconv.FormatInt(linkID, 10), Title: link.Title, Address: link.Address}, nil
 }
-
 
 // CreateUser is the resolver for the createUser field.
 func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (string, error) {
@@ -38,12 +39,12 @@ func (r *mutationResolver) RefreshToken(ctx context.Context, input model.Refresh
 
 // Links is the resolver for the links field.
 func (r *queryResolver) Links(ctx context.Context) ([]*model.Link, error) {
-  var links []*model.Link
-  dummyLink := model.Link{
-    Title: "our dummy link",
-    Address: "https://address.org",
-    User: &model.User{Name: "admin"},
-  }
+	var links []*model.Link
+	dummyLink := model.Link{
+		Title:   "our dummy link",
+		Address: "https://address.org",
+		User:    &model.User{Name: "admin"},
+	}
 	links = append(links, &dummyLink)
 	return links, nil
 }
