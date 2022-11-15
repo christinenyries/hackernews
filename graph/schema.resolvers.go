@@ -7,8 +7,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cyambao/hackernews/graph/generated"
-	"github.com/cyambao/hackernews/graph/model"
+	"github.com/christinenyries/hackernews/graph/generated"
+	"github.com/christinenyries/hackernews/graph/model"
 )
 
 // CreateLink is the resolver for the createLink field.
