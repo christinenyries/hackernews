@@ -5,8 +5,6 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/form3tech-oss/jwt-go"
-	"github.com/golang-jwt/jwt/v4"
 )
 
 // secret key being used to sign tokens
